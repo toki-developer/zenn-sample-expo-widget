@@ -3,23 +3,35 @@ import {
   DefaultTheme,
   ThemeProvider,
 } from "@react-navigation/native";
+import { Paths } from "expo-file-system";
 import { Stack } from "expo-router";
 import { SQLiteProvider, type SQLiteDatabase } from "expo-sqlite";
 import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
 
 import { useColorScheme } from "@/hooks/use-color-scheme";
+import { useMemo } from "react";
 
 export const unstable_settings = {
   anchor: "(tabs)",
 };
 
+const APP_GROUP_ID = "group.com.toki-developer.zenn-widget-sample";
+
 export default function RootLayout() {
   const colorScheme = useColorScheme();
 
+  const dbDirectory = useMemo(() => {
+    return Paths.appleSharedContainers[APP_GROUP_ID]?.uri;
+  }, []);
+
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <SQLiteProvider databaseName="database.db" onInit={migrateDbIfNeeded}>
+      <SQLiteProvider
+        databaseName="database.db"
+        directory={dbDirectory}
+        onInit={migrateDbIfNeeded}
+      >
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen
