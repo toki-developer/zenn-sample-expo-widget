@@ -10,7 +10,10 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.toki-developer.zenn-widget-sample"
+      "bundleIdentifier": "com.toki-developer.zenn-widget-sample",
+      "entitlements": {
+        "com.apple.security.application-groups": ["group.com.toki-developer.zenn-widget-sample.widget"]
+      }
     },
     "android": {
       "adaptiveIcon": {

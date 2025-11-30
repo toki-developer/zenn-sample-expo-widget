@@ -2,5 +2,9 @@
 module.exports = config => ({
   type: "widget",
   icon: 'https://github.com/expo.png',
-  entitlements: { /* Add entitlements */ },
+  entitlements: {
+    /* Add entitlements */
+    "com.apple.security.application-groups":
+      config.ios.entitlements["com.apple.security.application-groups"],
+  },
 });

@@ -42,10 +42,9 @@ struct widgetEntryView : View {
 
     var body: some View {
         VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
-
-            Text("Hello Widget")
+          ForEach(entry.sampleList, id: \.id) { sample in
+               Text(sample.name)
+           }
         }
     }
 }

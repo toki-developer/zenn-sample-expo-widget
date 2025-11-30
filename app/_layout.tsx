@@ -16,7 +16,7 @@ export const unstable_settings = {
   anchor: "(tabs)",
 };
 
-const APP_GROUP_ID = "group.com.toki-developer.zenn-widget-sample";
+const APP_GROUP_ID = "group.com.toki-developer.zenn-widget-sample.widget";
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -68,7 +68,7 @@ async function migrateDbIfNeeded(db: SQLiteDatabase) {
     await db.execAsync(`
       INSERT INTO sample (id, name) VALUES
       (1, 'hoge'),
-      (2, 'halloWidget');
+      (2, 'Hello Widget');
     `);
 
     currentDbVersion = 1;
