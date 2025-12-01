@@ -1,0 +1,9 @@
+{
+  "platforms": ["apple", "android", "web"],
+  "apple": {
+    "modules": ["WidgetUpdateModule"]
+  },
+  "android": {
+    "modules": ["expo.modules.widgetupdate.WidgetUpdateModule"]
+  }
+}
