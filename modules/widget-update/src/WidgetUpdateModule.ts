@@ -6,6 +6,7 @@ declare class WidgetUpdateModule extends NativeModule<WidgetUpdateModuleEvents> 
   PI: number;
   hello(): string;
   setValueAsync(value: string): Promise<void>;
+  reloadTimelines(): void;
 }
 
 // This call loads the native module object from the JSI.

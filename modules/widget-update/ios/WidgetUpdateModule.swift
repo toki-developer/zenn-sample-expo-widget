@@ -1,4 +1,5 @@
 import ExpoModulesCore
+import WidgetKit
 
 public class WidgetUpdateModule: Module {
   // Each module class must implement the definition function. The definition consists of components
@@ -43,6 +44,12 @@ public class WidgetUpdateModule: Module {
       }
 
       Events("onLoad")
+    }
+
+    AsyncFunction("reloadTimelines") {
+      DispatchQueue.main.async {
+          WidgetCenter.shared.reloadAllTimelines()
+      }
     }
   }
 }
